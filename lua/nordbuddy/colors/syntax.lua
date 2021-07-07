@@ -130,8 +130,11 @@ return function(c, s, cs)
     local uris = {
         'TSURI' -- TS
     }
+    local special_types = {
+        'TSTypeBuiltin', -- TS
+    }
     local types = {
-        'TSType', 'TSTypeBuildin', -- TS
+        'TSType', -- TS
         'Type', 'StorageClass', 'Structure', 'Typedef', -- VL
         'cType', 'cStorageClass', 'cStructure', 'cppType', 'cppStorageClass',
         'cppStructure', -- C/C++
@@ -171,14 +174,14 @@ return function(c, s, cs)
     local groups = {
         {attributes, c.nord9},
         {numbers, c.nord15},
-        {comments, c.nord3_light, c.none, cs.comments},
+        {comments, c.nord3:light(), c.none, cs.comments},
         {constructors, c.nord4, c.none, cs.italic}, -- in C++ variable->constructors() \\ TS docs unclear
         {conditionals, c.nord10, c.none, cs.italic},
         {constants, c.nord4},
         {defines, c.nord10},
         {exceptions, c.nord9},
         {fields, c.nord9, c.none},
-        {functions, c.nord4, c.none, cs.italic},
+        {functions, c.nord8, c.none, cs.italic},
         {includes, c.nord10},
         {keywords, c.nord9, c.none, s.none},
         {labels, c.nord10, c.none, cs.italic},
@@ -186,7 +189,7 @@ return function(c, s, cs)
         {nones, c.nord4},
         {operators, c.nord9},
         {parameters, c.nord4, c.none, cs.italic},
-        {properties, c.nord9},
+        {properties, c.nord13},
         {punctuations, c.nord9},
         {repeats, c.nord9, c.none, cs.italic},
         {strings, c.nord14},
@@ -195,6 +198,7 @@ return function(c, s, cs)
         {texts, c.nord4},
         {uris, c.nord15},
         {types, c.nord7},
+        {special_types, c.nord15},
         {variables, c.nord4},
         {builtins, c.nord9, c.none, cs.italic},
         {notes, c.nord12},
