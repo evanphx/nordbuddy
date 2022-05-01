@@ -198,10 +198,12 @@ return function(c, s, cs)
     local uris = {
         'TSURI', -- TS
     }
+    local special_types = {
+        'TSTypeBuildin',
+    }
     local types = {
         -- TS
         'TSType',
-        'TSTypeBuildin',
         -- VL
         'Type',
         'StorageClass',
@@ -272,7 +274,7 @@ return function(c, s, cs)
         { defines, c.intense_blue },
         { exceptions, c.blue },
         { fields, c.blue, c.none },
-        { functions, c.dark_white, c.none, cs.italic },
+        { functions, c.bright_cyan, c.none, cs.italic },
         { includes, c.intense_blue },
         { keywords, c.blue, c.none, s.none },
         { labels, c.intense_blue, c.none, cs.italic },
@@ -280,7 +282,7 @@ return function(c, s, cs)
         { nones, c.dark_white },
         { operators, c.blue },
         { parameters, c.dark_white, c.none, cs.italic },
-        { properties, c.blue },
+        { properties, c.yellow },
         { punctuations, c.blue },
         { repeats, c.blue, c.none, cs.italic },
         { strings, c.green },
@@ -303,5 +305,6 @@ return function(c, s, cs)
         { 'TSStrike', c.dark_white, c.none, s.strikethrough },
         { 'TSLiteral', c.cyan },
         { 'TSStringEscape', c.grayish },
+        { special_types, c.purple },
     }
 end
