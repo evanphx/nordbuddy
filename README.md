@@ -1,10 +1,10 @@
-# Nordbuddy
+# nordic.nvim
 
 A [nord](https://www.nordtheme.com/)-esque colorscheme.
 
-Nordbuddy supports highlighting for [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter),
+nordic.nvim supports highlighting for [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter),
 [Neovim LSP](https://neovim.io/doc/user/lsp.html), [Telescope](https://github.com/nvim-telescope/telescope.nvim/),
-and [much more](https://github.com/maaslalani/nordbuddy/tree/main/lua/nordbuddy/colors).
+and [much more](https://github.com/andersevenrud/nordic.nvim/tree/main/lua/nordic/colors).
 
 ![Color Preview](https://user-images.githubusercontent.com/42545625/112913430-935a6a80-90c7-11eb-867e-394b1790a14f.png)
 
@@ -14,16 +14,21 @@ and [much more](https://github.com/maaslalani/nordbuddy/tree/main/lua/nordbuddy/
 
 ## Usage
 
-This colorscheme can be install, configure and enable through `packer.nvim`. 
+nordic.nvim can be installed using any package manager and configuration language
+of choice.
 
-``` lua
+### With packer.nvim
+
+[`packer.nvim`](https://github.com/wbthomason/packer.nvim) provides an easy way
+to install, enable and configure this colorscheme:
+
+```lua
 use {
-    'maaslalani/nordbuddy',
+    'andersevenrud/nordic.nvim',
     config = function()
-        require('nordbuddy'):colorscheme(
-        -- This function takes a table as argument.
-        -- If an empty table is passed, these values are implicitly assigned.
-        {
+        -- The table used in this example contains the default settings.
+        -- Modify or remove these to your liking (this also applies to alternatives below):
+        require('nordic').colorscheme({
             -- Underline style used for spelling
             -- Options: 'none', 'underline', 'undercurl'
             underline_option = 'none',
@@ -33,57 +38,71 @@ use {
             italic = true,
 
             -- Italic styled comments
-            italic_comments = false
+            italic_comments = false,
+
+            -- Minimal mode: different choice of colors for Tabs and StatusLine
+            minimal_mode = false,
+
+            -- Darker backgrounds for certain sidebars, popups, etc.
+            -- Options: true, false, or a table of explicit names
+            -- Supported: terminal, qf, vista_kind, packer, nvim-tree, telescope, whichkey
+            alternate_backgrounds = false,
+
+            -- Callback function to define custom color groups
+            -- See 'lua/nordic/colors/example.lua' for example defitions
+            custom_colors = function(c, s, cs)
+              return {}
+            end
         })
     end
 }
 ```
 
-### Alternatively
+### Alternatives
 
-#### Install
+For example [`vim-plug`](https://github.com/junegunn/vim-plug):
 
-Install using:
-* `packer.nvim`
-
-``` lua
-use { 'maaslalani/nordbuddy' }
+```vim
+Plug 'andersevenrud/nordic.nvim'
 ```
 
-* `vim-plug`
+#### Using Lua
 
-``` vim
-Plug 'maaslalani/nordbuddy'
-```
-
-#### Setup
-
-Configure and enable the colorscheme in `init.lua` with:
+Via the nordic.nvim module:
 
 ``` lua
-require('nordbuddy'):colorscheme({
+require('nordic').colorscheme({
     underline_option = 'none',
     italic = true,
-    italic_comments = false
+    italic_comments = false,
+    minimal_mode = false,
+    alternate_backgrounds = false
 })
 ```
 
-Or do this with global variable:
-
-* In `init.lua`:
+or via vim globals:
 
 ``` lua
 vim.g.nord_underline_option = 'none'
 vim.g.nord_italic = true
 vim.g.nord_italic_comments = false
-vim.cmd('colorscheme nordbuddy')
+vim.g.nord_minimal_mode = false
+vim.g.nord_alternate_backgrounds = false
+vim.cmd('colorscheme nordic')
 ```
 
-* In `init.vim`:
+#### Using Vimscript
 
 ``` vim
 let g:nord_underline_option = 'none'
 let g:nord_italic = v:true
 let g:nord_italic_comments = v:false
-colorscheme nordbuddy
+let g:nord_minimal_mode = v:false
+let g:nord_alternate_backgrounds = v:false
+colorscheme nordic
 ```
+
+## Notes
+
+Certain plugin highlights are configured manually with Lua tables. This colorscheme comes with some
+[pre-made configurations](https://github.com/andersevenrud/nordic.nvim/tree/main/lua/nordic/configs) and instructions.
