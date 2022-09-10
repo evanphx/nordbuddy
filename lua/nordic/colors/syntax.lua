@@ -273,7 +273,7 @@ return function(c, s, cs)
         { constants, c.dark_white },
         { defines, c.intense_blue },
         { exceptions, c.blue },
-        { fields, c.blue, c.none },
+        { fields, c.yellow },
         { functions, c.bright_cyan, c.none, cs.italic },
         { includes, c.intense_blue },
         { keywords, c.blue, c.none, s.none },
