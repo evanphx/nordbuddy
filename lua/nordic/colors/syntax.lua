@@ -207,7 +207,6 @@ return function(c, s, cs)
         -- VL
         'Type',
         'StorageClass',
-        'Structure',
         'Typedef',
         -- C/C++
         'cType',
@@ -225,6 +224,7 @@ return function(c, s, cs)
         'Identifier', -- VL
         'pythonselfarg', -- python
         'rustIdentifier', -- rust
+        'Structure',
         -- vim
         'vimmapmodkey',
         'vimnotation',

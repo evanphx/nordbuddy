@@ -22,6 +22,7 @@ return function(c, s, cs, opts)
         { 'Visual', c.none, c.bright_black },
         { 'VisualNOS', c.none, c.bright_black },
         { 'VertSplit', c.black },
+        { 'WinSeparator', c.black },
         { 'VisualNC', c.none, c.bright_black },
         { 'NormalNC', c.dark_white, c.none },
         { 'RedrawDebugNormal', c.dark_black, c.dark_white },
